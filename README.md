@@ -1,6 +1,9 @@
 # odin-tic_tac_toe
 Javascript project for The Odin Project
 
+## Live Demo
+[Live Demo](https://vu3xk41997.github.io/odin-tic_tac_toe/)
+
 ## Requirement
 1. Create HTML, CSS skeleton
 2. Create modules: gameBoard, displayController
