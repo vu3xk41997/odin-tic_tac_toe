@@ -4,15 +4,13 @@ const gameBoard = (() => {
 
     const _winningPattern = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
 
-    const _winningStatus = [false, false, false, false, false, false, false, false]
-
     const _switchPlayer = () => {
         if (currentPlayer == player1) {
             currentPlayer = player2;   
         } else {
             currentPlayer = player1;
         }
-        document.getElementById('turnStatus').innerText = `It's ${currentPlayer.getMarker}'s turn now.`;
+        document.getElementById('turnStatus').innerText = displayController.playersTurn(currentPlayer.getMarker);
     };
 
     const fillSpace = (position) => {
@@ -33,37 +31,60 @@ const gameBoard = (() => {
         }
     }
 
-    // const checkWin = () => {
-    //     for (let i = 0; i < _winningPattern.length; i++) {
-    //         let [first, second, third] = _winningPattern[i];
-    //         if (_boardArray[first] == _boardArray[second] && _boardArray[second] == _boardArray[third] && !_boardArray.includes(0)) {
-    //             _winningStatus[i] = true;
-    //         };
-    //     };
-    //     if (_winningStatus.includes(true)) {
-    //         for (let i = 0; i < _boardArray.length; i++) {
-    //             document.getElementById(`grid${i}`).addEventListener('click', (e) => {
-    //                 e.preventDefault();
-    //             });
-    //         }
-    //         document.getElementById('turnStatus').innerText = displayController.displayWinner(currentPlayer.getName);
-    //     }
-    // };
+    const _matchWinningPattern = (array) => {
+        let [first, second, third] = array;
+        if (_boardArray[first] != 0 && _boardArray[first] == _boardArray[second] && _boardArray[second] == _boardArray[third]) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    const checkWin = () => {
+        if (_winningPattern.some(_matchWinningPattern)) {
+            for (let i = 0; i < _boardArray.length; i++) {
+                if (_boardArray[i] == 0) {
+                    _boardArray[i] = 1;
+                }
+            }
+            if (currentPlayer == player1) {
+                document.getElementById('turnStatus').innerText = displayController.displayWinner(player2.getName, player2.getMarker);
+            } else {
+                document.getElementById('turnStatus').innerText = displayController.displayWinner(player1.getName, player1.getMarker);
+            }
+            document.getElementsByClassName('restart')[0].style.display = "flex";
+        }
+    };
+
+    const checkTie = () => {
+        if (!_boardArray.includes(0) && !_boardArray.includes(1) && !_winningPattern.some(_matchWinningPattern)) {
+            document.getElementById('turnStatus').innerText = displayController.displayTie;
+            document.getElementsByClassName('restart')[0].style.display = "flex";
+        }
+    }
+
+    const restart = () => {
+        location.reload();
+
+    }
 
     return {
         showAllMarkers,
-        fillSpace
+        fillSpace,
+        checkWin,
+        checkTie,
+        restart
     };
 })();
 
 const displayController = (() => {
 
     const playersTurn = (name) => {
-        console.log(`It's ${name}'s turn now`);
+        return `It's ${name}'s turn now`;
     };
 
-    const displayWinner = (name) => {
-        `${name} wins!`
+    const displayWinner = (name, marker) => {
+        return `${name} (${marker}) wins!`
     }
 
     const displayTie = `It's a tie.`;

@@ -15,15 +15,18 @@
         <h2 id="turnStatus">It's X's turn now.</h2>
     </div>
     <div class="container">
-        <div onclick="gameBoard.fillSpace(0)" class="box" id="grid0"></div>
-        <div onclick="gameBoard.fillSpace(1)" class="box" id="grid1"></div>
-        <div onclick="gameBoard.fillSpace(2)" class="box" id="grid2"></div>
-        <div onclick="gameBoard.fillSpace(3)" class="box" id="grid3"></div>
-        <div onclick="gameBoard.fillSpace(4)" class="box" id="grid4"></div>
-        <div onclick="gameBoard.fillSpace(5)" class="box" id="grid5"></div>
-        <div onclick="gameBoard.fillSpace(6)" class="box" id="grid6"></div>
-        <div onclick="gameBoard.fillSpace(7)" class="box" id="grid7"></div>
-        <div onclick="gameBoard.fillSpace(8)" class="box" id="grid8"></div>
+        <div onclick="gameBoard.fillSpace(0); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid0"></div>
+        <div onclick="gameBoard.fillSpace(1); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid1"></div>
+        <div onclick="gameBoard.fillSpace(2); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid2"></div>
+        <div onclick="gameBoard.fillSpace(3); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid3"></div>
+        <div onclick="gameBoard.fillSpace(4); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid4"></div>
+        <div onclick="gameBoard.fillSpace(5); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid5"></div>
+        <div onclick="gameBoard.fillSpace(6); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid6"></div>
+        <div onclick="gameBoard.fillSpace(7); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid7"></div>
+        <div onclick="gameBoard.fillSpace(8); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid8"></div>
+    </div>
+    <div class="restart">
+        <button onclick="gameBoard.restart()" id="restartButton">Restart</button>
     </div>
     <script src="script.js"></script>
 </body>

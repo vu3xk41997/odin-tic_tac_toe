@@ -13,6 +13,13 @@ Javascript project for The Odin Project
 * Marked spaces can't be selected again
 3. Create factory: players
 * Avoid using constructor
+4. Build the logic that checks for when the game is over! Should check for 3-in-a-row and a tie
+* If game ends without filling all boxes, disable clicking
+5. Allow players to put in their names, include a button to start/restart the game and add a display element that congratulates the winning player
+* Display winner or tie
+* Still display winner when player win with last box
+* Show restart button when game ends
+* Reload window when restart button is clicked
 
 ## Current step
-* Building logic to check if game is over, check 3 in a row or tie
+* Allow players to put in their names and include a button to start the game

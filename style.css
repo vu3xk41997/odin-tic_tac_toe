@@ -91,3 +91,19 @@ h2 {
 .box:hover {
     background-color: antiquewhite;
 }
+
+.restart {
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.restart button {
+    font-family: inherit;
+    font-size: larger;
+    font-weight: bold;
+    background-color: white;
+    color: #1f2937;
+    padding: 16px;
+    border-radius: 10px;
+}
