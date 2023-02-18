@@ -51,6 +51,7 @@ table {
 /* css reset */
 * {
     background-color: #1f2937;
+    box-sizing: border-box;
 }
 
 
@@ -60,6 +61,62 @@ h1 {
     font-size: 48px;
     line-height: 2;
 }
+
+
+
+.setting {
+    display: flex;
+    justify-content: center;
+}
+
+.setting form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin: 120px auto; */
+    max-width: 300px;
+    width: 50%;
+    background-color: white;
+    font-size: large;
+    padding: 36px;
+    border-radius: 10px;
+}
+
+.setting label, input, button {
+    background-color: white;
+}
+
+.setting label {
+    font-family: inherit;
+    font-size: large;
+}
+
+.setting input {
+    font-family: inherit;
+    font-size: large;
+    line-height: 2;
+}
+
+.setting button {
+    border: none;
+    background-color: #1f2937;
+    color: white;
+    font-family: inherit;
+    border-radius: 10px;
+    line-height: 2;
+    cursor: pointer;
+    font-size: large;
+}
+
+.setting button:hover {
+    opacity: 0.8;
+}
+
+.status {
+    display: none;
+}
+
+
 
 h2 {
     color: white;
@@ -74,8 +131,8 @@ h2 {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 2px;
-    /* background-color: black; */
     justify-content: center;
+    display: none;
 }
 
 .box {

@@ -20,6 +20,4 @@ Javascript project for The Odin Project
 * Still display winner when player win with last box
 * Show restart button when game ends
 * Reload window when restart button is clicked
-
-## Current step
-* Allow players to put in their names and include a button to start the game
+* Allow player to enter names and start game

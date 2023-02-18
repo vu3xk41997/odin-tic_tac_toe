@@ -11,8 +11,17 @@
     <div class="header">
         <h1>Tic Tac Toe</h1>
     </div>
+    <div class="setting">
+        <form>
+            <label for="player1">Player 1 (X)</label><br>
+            <input type="text" name="player1" id="player1" required placeholder="Your name"><br>
+            <label for="player2">Player 2 (O)</label><br>
+            <input type="text" name="player2" id="player2" required placeholder="Your name"><br>
+            <button type="submit" onclick="gameBoard.startGame()">Start Game</button>
+        </form>
+    </div>
     <div class="status">
-        <h2 id="turnStatus">It's X's turn now.</h2>
+        <h2 id="turnStatus"></h2>
     </div>
     <div class="container">
         <div onclick="gameBoard.fillSpace(0); gameBoard.checkWin(); gameBoard.checkTie();" class="box" id="grid0"></div>

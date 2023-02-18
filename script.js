@@ -4,13 +4,33 @@ const gameBoard = (() => {
 
     const _winningPattern = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
 
+    let player1;
+    let player2;
+    let currentPlayer;
+
+    const startGame = () => {
+        player1_name = document.getElementById('player1').value;
+        player2_name = document.getElementById('player2').value;
+
+        player1 = Player(player1_name, "X"); // create player 1
+        player2 = Player(player2_name, "O"); // create player 2
+
+        currentPlayer = player1;
+
+        gameBoard.showAllMarkers();
+        document.getElementsByClassName('setting')[0].style.display = "none";
+        document.getElementsByClassName('status')[0].style.display = "block";
+        document.getElementsByClassName('container')[0].style.display = "grid";
+        document.getElementById('turnStatus').innerText = displayController.playersTurn(currentPlayer.getName);
+    }
+
     const _switchPlayer = () => {
         if (currentPlayer == player1) {
             currentPlayer = player2;   
         } else {
             currentPlayer = player1;
         }
-        document.getElementById('turnStatus').innerText = displayController.playersTurn(currentPlayer.getMarker);
+        document.getElementById('turnStatus').innerText = displayController.playersTurn(currentPlayer.getName);
     };
 
     const fillSpace = (position) => {
@@ -69,6 +89,7 @@ const gameBoard = (() => {
     }
 
     return {
+        startGame,
         showAllMarkers,
         fillSpace,
         checkWin,
@@ -108,8 +129,13 @@ const Player = (name, marker) => {
 };
 
 
+
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+})
+
 // Game flow
-gameBoard.showAllMarkers(); // empty form
-const player1 = Player("player1", "X"); // create player 1
-const player2 = Player("player2", "O"); // create player 2
-let currentPlayer = player1; // set first player
+// gameBoard.showAllMarkers(); // empty form
+// const player1 = Player("player1", "X"); // create player 1
+// const player2 = Player("player2", "O"); // create player 2
+// let currentPlayer = player1; // set first player
